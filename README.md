@@ -10,14 +10,14 @@ How to use
 ==========
 * First run :
 ```
-docker run --rm -ti -v <yourpathconf>:/var/www/ldap-selfservice/conf acaranta/ldap-selfservice
-# This will copy the default configuration file to <yourpathconf>
+docker run --rm -ti -v yourconfpath:/var/www/ldap-selfservice/conf acaranta/ldap-selfservice
+# This will copy the default configuration file to yourconfpath
 # Exit with [Control+C]
 ```
-* Edit your configuration in <yourpathconf>/config.inc.php
+* Edit your configuration in yourconfpath/config.inc.php
 * Normal run :
 ```
-docker run -d -p <yourport>:80 -v <yourpathconf>:/var/www/ldap-selfservice/conf -e SMTPSRV=yoursmtp:port acaranta/ldap-selfservice
+docker run -d -p <yourport>:80 -v yourconfpath:/var/www/ldap-selfservice/conf -e SMTPSRV=yoursmtp:port acaranta/ldap-selfservice
 ```
 
 IMPORTANT
