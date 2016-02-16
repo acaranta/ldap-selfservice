@@ -1,12 +1,25 @@
 ldap-selfservice
 ================
 
-LDAP Toolbox Project - Self-Service Password 
+LDAP Toolbox Project - Self-Service Password Dockerized version
 Forked from version 0.8 - http://ltb-project.org/wiki/documentation/self-service-password
 
 
-Setup
-=====
-1) Copy conf/config.inc.php.example to conf/config.inc.php and edit as required.
-2) Copy conf/httpd-ldap.conf.example to /etc/httpd/conf.d/ldap.conf and edit as required.
-3) Restart Apache
+
+How to use
+==========
+* First run :
+```
+docker run --rm -ti -v <yourpathconf>:/var/www/ldap-selfservice/conf acaranta/ldap-selfservice
+# This will copy the default configuration file to <yourpathconf>
+# Exit with [Control+C]
+```
+* Edit your configuration in <yourpathconf>/config/inc.php
+* Normal run :
+```
+docker run -d -p <yourport>:80 -v <yourpathconf>:/var/www/ldap-selfservice/conf -e SMTPSRV=yoursmtp:port acaranta/ldap-selfservice
+```
+
+IMPORTANT
+=========
+Beware : this container is running on purpose on clear HTTP protocol, it is *NOT* to be used as is directly on the web.... use an SSL reverse proxy on only expose it to your pricate network.
