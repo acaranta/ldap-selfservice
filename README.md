@@ -14,7 +14,7 @@ docker run --rm -ti -v <yourpathconf>:/var/www/ldap-selfservice/conf acaranta/ld
 # This will copy the default configuration file to <yourpathconf>
 # Exit with [Control+C]
 ```
-* Edit your configuration in <yourpathconf>/config/inc.php
+* Edit your configuration in <yourpathconf>/config.inc.php
 * Normal run :
 ```
 docker run -d -p <yourport>:80 -v <yourpathconf>:/var/www/ldap-selfservice/conf -e SMTPSRV=yoursmtp:port acaranta/ldap-selfservice
@@ -22,4 +22,4 @@ docker run -d -p <yourport>:80 -v <yourpathconf>:/var/www/ldap-selfservice/conf 
 
 IMPORTANT
 =========
-Beware : this container is running on purpose on clear HTTP protocol, it is *NOT* to be used as is directly on the web.... use an SSL reverse proxy on only expose it to your pricate network.
+Beware : this container is running on purpose on clear HTTP protocol, it is **NOT** to be used as is directly on the web.... use an SSL reverse proxy on only expose it to your pricate network.
