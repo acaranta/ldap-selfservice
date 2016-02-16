@@ -130,6 +130,10 @@ $mail_from = "admin@example.com";
 # Notify users anytime their password is changed
 $notify_on_change = true;
 
+# If there is only one email per user LDAP account
+# Force its use even if it does not match the user@domain pattern
+$mailuserentry = false ;
+
 # default email domain
 $maildomain = "example.com"
 # admin user email  ("@".$defaultdomain appended in code)

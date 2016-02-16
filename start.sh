@@ -8,6 +8,8 @@ then
 	chown -Rf www-data.www-data $ROOTTP 
 fi
 
+echo -e "mailhub=$SMTPSRV\n" >>/etc/ssmtp/ssmtp.conf
+
 /usr/sbin/apache2ctl -D FOREGROUND &
 
 tail -f /var/log/apache2/*log

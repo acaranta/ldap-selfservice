@@ -112,14 +112,20 @@ if ( $result === "" ) {
     $mailValues = ldap_get_values($ldap, $entry, $mail_attribute);
     unset($mailValues["count"]);
     $match = 0;
-
-    # Match with user submitted values
-    foreach ($mailValues as $mailValue) {
-        if (preg_match("/^$mail$/i", $mailValue)) {
-            $match = 1;
-        }
+    if ($mailuserentry)  {
+	    # Match with user submitted values
+	    foreach ($mailValues as $mailValue) {
+	 	$match = 1;
+		$mail = $mailValue;
+	    }
+    } else {
+	    # Match with user submitted values
+	    foreach ($mailValues as $mailValue) {
+	      if (preg_match("/^$mail$/i", $mailValue)) {
+		    $match = 1;
+	      }
+    	    }
     }
-
     if (!$match) {
         $result = "mailnomatch";
         error_log("Mail $mail does not match for user $login");
