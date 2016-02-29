@@ -367,7 +367,7 @@ function decrypt($data, $keyphrase) {
     return trim($decrypted);
 }
 
-/* @function boolean send_mail(string $mail, string $mail_from, string $subject, string $body, array $data)
+/* @function boolean Send_mail(string $mail, string $mail_from, string $subject, string $body, array $data)
  * Send a mail, replace strings in body
  * @param mail Destination
  * @param mail_from Sender
@@ -393,19 +393,33 @@ function send_mail($mail, $mail_from, $subject, $body, $data) {
         $body = str_replace('{'.$key.'}', $value, $body);
     }
 
-    /* Encode the subject */
-    mb_internal_encoding("UTF-8");
-    $subject = mb_encode_mimeheader($subject);
+require 'PHPMailer/PHPMailerAutoload.php';
+//Create a new PHPMailer instance
+$sndmail = new PHPMailer;
+$sndmail->isSMTP();
 
-    /* Set encoding for the body */
-    $header = "MIME-Version: 1.0\r\nContent-type: text/plain; charset=UTF-8\r\n";
+$sndmail->SMTPDebug = 0;
+$sndmail->Debugoutput = 'html';
 
-    /* Send the mail */
-    if ($mail_from) {
-        $result = mail($mail, $subject, $body, $header."From: $mail_from\r\n","-f$mail_from");
-    } else {
-        $result = mail($mail, $subject, $body, $header);
-    }
+$sndmail->Host = getenv('SMTP_SERVER');
+$sndmail->Port = getenv('SMTP_PORT') ;
+$sndmail->SMTPAuth = true;
+$sndmail->Username = getenv('SMTP_USER');
+$sndmail->Password = getenv('SMTP_PASS');
+
+$sndmail->setFrom($mail_from, 'LDAP Self Service');
+//$sndmail->addReplyTo('replyto@example.com', 'First Last');
+$sndmail->addAddress($mail);
+$sndmail->Subject = "$subject";
+$sndmail->msgHTML($body);
+//$sndmail->AltBody = 'This is a plain-text message body';
+
+//send the message, check for errors
+if (!$sndmail->send()) {
+    echo "Mailer Error: " ;// . $sndmail->ErrorInfo;
+} else {
+    echo "Message sent!";
+}
 
     return $result;
 
