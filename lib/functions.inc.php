@@ -418,7 +418,8 @@ $sndmail->msgHTML($body);
 if (!$sndmail->send()) {
     echo "Mailer Error: " ;// . $sndmail->ErrorInfo;
 } else {
-    echo "Message sent!";
+//    echo "Message sent!";
+    $result = true ;
 }
 
     return $result;
