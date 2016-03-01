@@ -74,7 +74,7 @@ $messages['changehelpreset'] = "Mot de passe oublié ?";
 $messages['changehelpquestions'] = "<a href=\"?action=resetbyquestions\">Réinitialisez votre mot de passe en répondant à des questions</a>";
 $messages['changehelptoken'] = "<a href=\"?action=sendtoken\">Réinitialisez votre mot de passe via un challenge par mail</a>";
 $messages['changehelpsms'] = "<a href=\"?action=sendsms\">Réinitialisez votre mot de passe par SMS</a>";
-$messages['resetmessage'] = "Bonjour {login},\n\nCliquez ici pour réinitialiser votre mot de passe :\n{url}\n\nSi vous n'êtes pas à l'origine de cette demande, merci de l'ignorer.";
+$messages['resetmessage'] = "Bonjour <u>{login}</u>,\n\n<br/>Pour réinitialiser votre mot de passe cliquez sur <a href='{url}'>ce lien</a><br/><br/>(Ou copiez/collez ce lien : {url})<br/><br/>\n\nSi vous n'êtes pas à l'origine de cette demande, merci de l'ignorer.";
 $messages['resetsubject'] = "Réinitialisation de votre mot de passe";
 $messages['sendtokenhelp'] = "Entrez votre identifiant et votre adresse mail pour réinitialiser votre mot de passe. Cliquez ensuite sur le lien transmis par mail.";
 $messages['mail'] = "Adresse mail";
