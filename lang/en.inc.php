@@ -75,7 +75,7 @@ $messages['changehelpreset'] = "Forgot your password?";
 $messages['changehelpquestions'] = "<a href=\"?action=resetbyquestions\">Reset your password by answering questions</a>";
 $messages['changehelptoken'] = "<a href=\"?action=sendtoken\">Email a password reset link</a>";
 $messages['changehelpsms'] = "<a href=\"?action=sendsms\">Reset your password with a SMS</a>";
-$messages['resetmessage'] = "Hello <u>{login}</u>,\n\n</br>To reset your password click on <a href='{url}'>this link</a><br/><br/>(Ou copy/paste this link : {url}<br/>\n\nIf you didn't request a password reset, please ignore this email.";
+$messages['resetmessage'] = "Hello <u>{login}</u>,\n\n<br/><br/>To reset your password click on <a href='{url}'>this link</a><br/><br/>(Or copy/paste this link : {url}<br/>\n\nIf you didn't request a password reset, please ignore this email.";
 $messages['resetsubject'] = "Reset your password";
 $messages['sendtokenhelp'] = "Enter your user name and your email address to reset your password. When you receive the email, click the link inside to complete the password reset.";
 $messages['mail'] = "Mail";
